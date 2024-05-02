@@ -1,0 +1,68 @@
+{% extends 'testimonies/base.html' %}
+
+{% block content %}
+<div class="mb-10">
+<div class="grid grid-cols-4 gap-8 m-20">
+<section class="rounded-lg relative isolate overflow-hidden bg-white px-3 py-24 sm:py-10 lg:px-8">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(65rem_20rem_at_top,theme(colors.indigo.100),white)] opacity-20"></div>
+    <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+    <div class="mx-auto max-w-2xl lg:max-w-4xl">
+
+      <svg class="mx-auto h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97ZM6.75 8.25a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H7.5Z" clip-rule="evenodd" />
+      </svg>
+
+      <figure class="mt-10">
+        <blockquote class="text-center text-xl font-light leading-8 text-gray-900 sm:text-lg sm:leading-9">
+          <p>Real reviews, from real people. Share about how django has changed your life. Join the family!</p>
+        </blockquote>
+      </figure>
+      <figcaption class="mt-10">
+        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+          <a href="{% url 'post_new' %}" class="top-menu">
+          <div class="font-semibold text-gray-900">share your experience
+          </div>
+        </div>
+        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+        </svg>
+        </a>
+      </div>
+      </figcaption>
+
+      <a href="{% url 'main_page' %}"><svg class="m-10 mx-auto h-10" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg></a>
+
+    </div>
+</section>
+
+{% for testimony in testimonies %}
+
+<section class="mb-8 rounded-lg relative isolate overflow-hidden bg-white bg-clip-content px-6 py-24 sm:py-10 lg:px-8">
+    <div class="absolute p-8 inset-0 -z-10 bg-[radial-gradient(65rem_20rem_at_top,theme(colors.indigo.100),white)] opacity-50"></div>
+    <div class="mx-auto p-8 max-w-2xl lg:max-w-4xl">
+
+      <svg class="mx-auto h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+      </svg>
+
+      <figure class="mt-10">
+        <blockquote class="text-center text-xl font-light leading-8 text-gray-900 sm:text-lg sm:leading-9">
+          <p>{{ testimony.testimonial }}</p>
+        </blockquote>
+        <figcaption class="mt-10">
+          <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+            <div class="font-semibold text-gray-900">{{ testimony.name }}</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+</section>
+
+{% endfor %}
+
+</div>
+</div>
+{% endblock %}
